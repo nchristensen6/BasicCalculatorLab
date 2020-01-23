@@ -8,17 +8,23 @@ namespace BasicCalculator
         {
             Console.WriteLine("*** BASIC CALCULATOR ***");
 
-            Console.WriteLine("Enter the first number");
+            Console.WriteLine("Enter the Temperature in Farenheit");
 
             // int.Parse will take a string data type and convert it to an int data type
-            int firstNumber = int.Parse(Console.ReadLine());
+            int ActualTemp = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter the second number");
-            int secondNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the Relative Humidity");
+            int RelativeHumidity = int.Parse(Console.ReadLine());
 
-            int sum = firstNumber + secondNumber;
+            decimal dewpoint = ActualTemp - 9m / 25m * (100 - RelativeHumidity);
 
-            Console.WriteLine("The answer is " + sum);
+            Console.WriteLine("Ënter Windspeed");
+            int Windspeed = int.Parse(Console.ReadLine());
+
+            double WindChill = 35.74 + 0.6215 * ActualTemp - 35.75 * Math.Pow(Windspeed, .16) + 0.4275 * ActualTemp * Math.Pow(Windspeed, .16);
+     
+
+            Console.WriteLine("The answer is " + WindChill);
         }
     }
 }
